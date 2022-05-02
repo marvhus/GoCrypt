@@ -47,7 +47,6 @@ func main() {
 		fmt.Println("(", i, ") - ", v)
 	}
 
-
 	var cipher int
 	for {
 		fmt.Print("Enter the id of what you want to use: ")
