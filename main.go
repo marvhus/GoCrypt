@@ -13,14 +13,7 @@ var ciphers = [...]string{
 func getInputString() string {
 	var text string
 	fmt.Print("\nEnter the string you want to run through GoCrypt: ")
-	_, err := fmt.Scanln(&text)
-	// If there is an extra \n, then scan again for it, and discard it.
-	if err != nil {
-		var discard string
-		fmt.Scanf("%v", &discard)
-	}
-
-	fmt.Println(text)
+	fmt.Scanf("%s\n", &text)
 
 	return text
 }
@@ -28,12 +21,7 @@ func getInputString() string {
 func getCipherMethod() string {
 	var method string
 	fmt.Print("\nDo you want to encrypt or decrypt? (E/d): ")
-	_, err := fmt.Scanf("%1v", &method)
-	// If there is an extra \n, then scan again for it, and discard it.
-	if err != nil {
-		var discard string
-		fmt.Scanln(&discard)
-	}
+	fmt.Scanf("%1v\n", &method)
 
 	return method
 }
@@ -64,12 +52,7 @@ func main() {
 	var cipher int
 	for {
 		fmt.Print("Enter the id of what you want to use: ")
-		_, err := fmt.Scanf("%1d", &cipher)
-		// If there is an extra \n, then scan again for it, and discard it.
-		if err != nil {
-			var discard string
-			fmt.Scanln(&discard)
-		}
+		fmt.Scanf("%d\n", &cipher)
 
 		if cipher < len(ciphers) && cipher >= 0 {
 			break
@@ -88,5 +71,5 @@ func main() {
 		textOut = caesar(textIn, method)
 	}
 
-	fmt.Println("Here is the output of the cipher:", textOut)
+	fmt.Println("\nHere is the output of the cipher:", textOut)
 }
